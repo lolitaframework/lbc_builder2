@@ -1,4 +1,7 @@
+@import "../../../core/scss/mixins/mixins";
+
 .logo {
+  @include text-hide();
   color: #fff;
 
   &--black {

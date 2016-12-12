@@ -30,9 +30,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract(
-                    'css-loader'
-                )
+                loader: ExtractTextPlugin.extract('css-loader')
             },
             {
                 test: /\.scss$/,
@@ -42,14 +40,21 @@ module.exports = {
                 )
             },
             {
-                test: /\.(jpg|png)$/,
+                test: /\.(jpg|png|svg)$/,
                 exclude: /node_modules/,
                 loaders: ["file-loader?name=./img/img-[hash:4].[ext]"]
             },
             {
-                test: /\.(eot|ttf|woff|woff2|svg)$/,
-                exclude: /node_modules/,
-                loaders: ["file-loader?name=./fonts/[name].[ext]"]
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "url-loader?limit=10000&minetype=application/font-woff&name=./css/fonts/[name].[ext]"
+            },
+            {
+                test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader?name=./css/fonts/[name].[ext]"
+            },
+            {
+                test: /webfont\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader?name=./css/fonts/[name].[ext]"
             }
         ]
     },
