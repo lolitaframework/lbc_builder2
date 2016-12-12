@@ -1,0 +1,13 @@
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+    } @else if $prev-num >= $num {
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
