@@ -4,7 +4,7 @@ let template = require('./tpl/default.hbs');
 let styles = require('./scss/logo.scss');
 
 let params = {
-    name: 'Vitaliy',
+    name: 'Logo',
     styles: styles
 };
 

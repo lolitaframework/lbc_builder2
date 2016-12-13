@@ -1,6 +1,11 @@
 @import "../../../core/scss/mixins/mixins";
 
 .logo {
-  color: #333;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  clear: both;
+  color: #000;
+  background-color: #00b3ee;
   font-size: 16px;
 }

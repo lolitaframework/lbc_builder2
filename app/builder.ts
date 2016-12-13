@@ -7,6 +7,8 @@ function routing(locals) {
     switch (locals.path) {
         case '/tpls/test.html':
             return templates.getPage('test');
+        case '/tpls/home.html':
+            return templates.getPage('home');
     }
 }
 
