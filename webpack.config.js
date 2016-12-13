@@ -42,7 +42,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: extractProjectStyle.extract(
-                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!resolve-url-loader!sass-loader'
+                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!sass-loader'
                 ),
                 include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root, './app/modules/')]
             },
@@ -54,7 +54,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: extractLibStyle.extract(
-                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!resolve-url-loader!sass-loader'
+                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!sass-loader'
                 ),
                 include: [path.resolve(root, "node_modules/"), path.resolve(root, "app/core")]
             },
