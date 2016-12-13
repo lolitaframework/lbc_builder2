@@ -1,6 +1,5 @@
 module.exports = {
     routes: [
-        'home.html',
-        'some.html'
+        '/tpls/test.html'
     ]
 }

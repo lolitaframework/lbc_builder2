@@ -5,10 +5,8 @@ import * as templates from './core/ts/templates';
 
 function routing(locals) {
     switch (locals.path) {
-        case 'home.html':
-            return templates.getPage('home');
-        case 'some.html':
-            return templates.getPage('home');
+        case '/tpls/test.html':
+            return templates.getPage('test');
     }
 }
 
