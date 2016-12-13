@@ -3,7 +3,7 @@ const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin'
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const routes = require('./app/routes');
+const routes = require('./app/config');
 
 const extractProjectStyle = new ExtractTextPlugin("/css/styles.css");
 const extractLibStyle = new ExtractTextPlugin("/css/styles.lib.css");
