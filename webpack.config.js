@@ -36,25 +36,25 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loader: ExtractTextPlugin.extract(
-                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!sass-loader'
+                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!resolve-url-loader!sass-loader'
                 )
             },
             {
                 test: /\.(jpg|png|svg)$/,
                 exclude: /node_modules/,
-                loaders: ["file-loader?name=./img/img-[hash:4].[ext]"]
+                loaders: ["file-loader?name=./img/img-[hash:4].[ext]&publicPath=."],
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "url-loader?limit=10000&minetype=application/font-woff&name=./css/fonts/[name].[ext]"
+                loader: "file-loader?limit=10000&minetype=application/font-woff&name=./fonts/[name].[ext]&publicPath=."
             },
             {
                 test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "file-loader?name=./css/fonts/[name].[ext]"
+                loader: "file-loader?name=./fonts/[name].[ext]&publicPath=."
             },
             {
                 test: /webfont\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "file-loader?name=./css/fonts/[name].[ext]"
+                loader: "file-loader?name=./fonts/[name].[ext]&publicPath=."
             }
         ]
     },
