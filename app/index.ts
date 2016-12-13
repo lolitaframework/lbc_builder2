@@ -1,3 +1,1 @@
-import jQuery from 'jquery';
-
-let a = 1;
+// import jQuery from 'jquery';

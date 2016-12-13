@@ -1,8 +1,14 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 const autoprefixer = require('autoprefixer');
 const routes = require('./app/routes');
+
+const extractProjectStyle = new ExtractTextPlugin("/css/styles.css");
+const extractLibStyle = new ExtractTextPlugin("/css/styles.lib.css");
+
+const root = path.resolve(__dirname);
 
 module.exports = {
     debug: true,
@@ -30,14 +36,27 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css-loader')
+                loader: extractProjectStyle.extract('css-loader'),
+                include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root,'./app/modules/')]
             },
             {
                 test: /\.scss$/,
-                exclude: /node_modules/,
-                loader: ExtractTextPlugin.extract(
+                loader: extractProjectStyle.extract(
                     'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!resolve-url-loader!sass-loader'
-                )
+                ),
+                include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root, './app/modules/')]
+            },
+            {
+                test: /\.css$/,
+                loader: extractLibStyle.extract('css-loader'),
+                include: [path.resolve(root, "node_modules/"), path.resolve(root, "app/core")]
+            },
+            {
+                test: /\.scss$/,
+                loader: extractLibStyle.extract(
+                    'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!resolve-url-loader!sass-loader'
+                ),
+                include: [path.resolve(root, "node_modules/"), path.resolve(root, "app/core")]
             },
             {
                 test: /\.(jpg|png|svg)$/,
@@ -60,7 +79,8 @@ module.exports = {
     },
     postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
     plugins: [
-        new ExtractTextPlugin("css/styles.css"),
+        extractLibStyle,
+        extractProjectStyle,
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
         new StaticSiteGeneratorPlugin('builder', routes.routes)
