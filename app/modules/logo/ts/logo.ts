@@ -1,6 +1,4 @@
 import * as blocks from "../../../core/ts/blocks";
-import {Breakpoint} from "../../../core/ts/blocks";
-
 
 export default class Logo extends blocks.MediaBlock {
     constructor(selector: string) {
@@ -11,7 +9,7 @@ export default class Logo extends blocks.MediaBlock {
         block.text('hello');
     }
 
-    public onScreenResize(breakpoint: Breakpoint, event: JQueryEventObject): void {
+    public onScreenResize(breakpoint: blocks.Breakpoint, event: JQueryEventObject): void {
         console.log(breakpoint.name);
     }
 }

@@ -1,4 +1,4 @@
-// This is start point of application
+// This is start for Builder
 
 import * as templates from './core/ts/templates';
 require('normalize-css/normalize.css');

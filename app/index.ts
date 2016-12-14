@@ -1,3 +1,5 @@
+// This is start for Browser
+
 import {Settings} from "./core/ts/blocks";
 import Logo from "./modules/logo/ts/logo";
 
