@@ -2,6 +2,7 @@
 
 import * as templates from './core/ts/templates';
 require('normalize-css/normalize.css');
+require('font-awesome/css/font-awesome.css');
 
 function routing(locals: any) {
     switch (locals.path) {
