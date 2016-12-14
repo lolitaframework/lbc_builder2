@@ -3,4 +3,10 @@
 .logo {
   color: #333;
   font-size: 16px;
+
+  @include breakpoint(100) {
+    color: #000000;
+  }
+
+  @include box();
 }

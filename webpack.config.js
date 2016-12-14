@@ -37,14 +37,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: extractProjectStyle.extract('css-loader'),
-                include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root,'./app/modules/')]
+                include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root,'./app/modules/'), path.resolve(root, './app/general/')]
             },
             {
                 test: /\.scss$/,
                 loader: extractProjectStyle.extract(
                     'css-loader?modules&importLoaders=1&localIdentName=[name]-[hash:base64:5]__[local]!postcss!sass-loader'
                 ),
-                include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root, './app/modules/')]
+                include: [path.resolve(root, './app/pages/'), path.resolve(root, './app/layouts/'), path.resolve(root, './app/modules/'), path.resolve(root, './app/general/')]
             },
             {
                 test: /\.css$/,
