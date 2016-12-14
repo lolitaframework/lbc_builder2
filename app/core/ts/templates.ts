@@ -6,7 +6,7 @@
  * @param source
  * @returns {Object}
  */
-function updateObject(object:Object, source:Object) {
+function updateObject(object: any, source: any) {
     for (let key in source) {
         object[key] = source[key];
     }
