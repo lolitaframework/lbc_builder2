@@ -6,7 +6,7 @@ export default class Logo extends blocks.MediaBlock {
     }
 
     public initBlock(block: JQuery): void {
-        block.text('hello');
+        block.text("hello");
     }
 
     public onScreenResize(breakpoint: blocks.Breakpoint, event: JQueryEventObject): void {

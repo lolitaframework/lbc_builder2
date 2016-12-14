@@ -1,12 +1,12 @@
-import * as templates from '../../core/ts/templates';
-require('font-awesome/css/font-awesome.css');
+import * as templates from "../../core/ts/templates";
+require("font-awesome/css/font-awesome.css");
 
-let template = require('./tpl/default.hbs');
-let styles = require('./scss/logo.scss');
+let template = require("./tpl/default.hbs");
+let styles = require("./scss/logo.scss");
 
 
 let params = {
-    name: 'Vitaliy',
+    name: "Vitaliy",
     styles: styles
 };
 

@@ -20,9 +20,9 @@ function updateObject(object: any, source: any) {
  * @returns {any}
  */
 export function getPage(name: string, params?: Object) {
-    let page = require('../../pages/' + name + '/build').default;
+    let page = require("../../pages/" + name + "/build").default;
     if (params) {
-        return page(params)
+        return page(params);
     } else {
         return page();
     }
@@ -35,9 +35,9 @@ export function getPage(name: string, params?: Object) {
  * @returns {any}
  */
 export function getLayout(name: string, params?: Object) {
-    let layout = require('../../layouts/' + name + '/build').default;
+    let layout = require("../../layouts/" + name + "/build").default;
     if (params) {
-        return layout(params)
+        return layout(params);
     } else {
         return layout();
     }
@@ -50,9 +50,9 @@ export function getLayout(name: string, params?: Object) {
  * @returns {any}
  */
 export function getModule(name: string, params?: Object) {
-    let module = require('../../modules/' + name + '/build').default;
+    let module = require("../../modules/" + name + "/build").default;
     if (params) {
-        return module(params)
+        return module(params);
     } else {
         return module();
     }
@@ -65,9 +65,9 @@ export function getModule(name: string, params?: Object) {
  * @returns {any}
  */
 export function getComponent(name: string, params?: Object) {
-    let component = require('../../modules/_components/' + name + '/build').default;
+    let component = require("../../modules/_components/" + name + "/build").default;
     if (params) {
-        return component(params)
+        return component(params);
     } else {
         return component();
     }

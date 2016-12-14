@@ -27,12 +27,12 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: /node_modules/,
-                loaders: ["babel", "ts"]
+                loaders: ["babel", "ts", "tslint-loader"]
             },
             {
                 test: /\.hbs$/,
                 exclude: /node_modules/,
-                loaders: ["handlebars"]
+                loaders: ["htmlhint", "handlebars"]
             },
             {
                 test: /\.css$/,
@@ -78,6 +78,26 @@ module.exports = {
         ]
     },
     postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+    htmlhint: {
+        "tagname-lowercase": true,
+        "attr-lowercase": true,
+        "attr-value-double-quotes": true,
+        "attr-value-not-empty": true,
+        "attr-no-duplication": true,
+        "doctype-first": false,
+        "tag-pair": false,
+        "tag-self-close": true,
+        "spec-char-escape": false,
+        "id-unique": true,
+        "src-not-empty": true,
+        "title-require": false
+    },
+    tslint: {
+        typeCheck: true,
+        emitErrors: false,
+        failOnHint: false,
+        console: true
+    },
     plugins: [
         extractLibStyle,
         extractProjectStyle,

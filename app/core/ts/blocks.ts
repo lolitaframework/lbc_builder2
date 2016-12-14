@@ -1,11 +1,11 @@
-import jQuery from 'jquery';
+import jQuery from "jquery";
 
 /**
  * Breakpoint interface
  */
 export interface Breakpoint {
-    name: string,
-    upValue: number
+    name: string;
+    upValue: number;
 }
 
 export class Settings {
@@ -21,10 +21,10 @@ export class Settings {
      */
     public static addMediaBreakpoint(breakpoint: Breakpoint): void {
         if (!breakpoint.name) {
-            throw new RangeError('Breakpoint label should be not empty');
+            throw new RangeError("Breakpoint label should be not empty");
         }
         if (breakpoint.upValue < 1) {
-            throw new RangeError('Breakpoint upValue should be positive');
+            throw new RangeError("Breakpoint upValue should be positive");
         }
         Settings.mediaBreakpoints.push(breakpoint);
 
@@ -127,7 +127,7 @@ export abstract class MediaBlock extends Block {
      */
     constructor(selector: string) {
         super(selector);
-        jQuery(window).on('resize',
+        jQuery(window).on("resize",
             (event) => {
                 if (this.isInitialized) {
                     let currentBreakpoint = Settings.getCurrentBreakPoint(jQuery(window).width());
