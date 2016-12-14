@@ -8,6 +8,53 @@ export interface Breakpoint {
     upValue: number
 }
 
+export class Settings {
+    /**
+     * Breakpoints
+     * @type {Array}
+     */
+    protected static mediaBreakpoints: Array<Breakpoint> = [];
+
+    /**
+     * Added breakpoint to mediaBreakpoints value
+     * @param breakpoint
+     */
+    public static addMediaBreakpoint(breakpoint: Breakpoint): void {
+        if (!breakpoint.name) {
+            throw new RangeError('Breakpoint label should be not empty');
+        }
+        if (breakpoint.upValue < 1) {
+            throw new RangeError('Breakpoint upValue should be positive');
+        }
+        Settings.mediaBreakpoints.push(breakpoint);
+
+        // sort
+        Settings.mediaBreakpoints = Settings.mediaBreakpoints.sort((a, b): number => {
+            if (b.upValue > a.upValue) {
+                return -1;
+            } else if (b.upValue < a.upValue) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    }
+
+    /**
+     * Get Current Breakpoint
+     * @param width
+     * @returns {any}
+     */
+    public static getCurrentBreakPoint(width: number): any {
+        for (let breakpoint of Settings.mediaBreakpoints) {
+            if (width <= breakpoint.upValue) {
+                return breakpoint;
+            }
+        }
+        return undefined;
+    }
+}
+
 /**
  * Block generic Class
  */
@@ -31,7 +78,7 @@ export abstract class Block {
      * Get blocks
      * @returns {JQuery[]}
      */
-    get blocks(): JQuery[] {
+    get blocks(): Array<JQuery> {
         return this._blocks;
     }
 
@@ -83,7 +130,8 @@ export abstract class MediaBlock extends Block {
         jQuery(window).on('resize',
             (event) => {
                 if (this.isInitialized) {
-                    this.onScreenResize(event);
+                    let currentBreakpoint = Settings.getCurrentBreakPoint(jQuery(window).width());
+                    this.onScreenResize(currentBreakpoint, event);
                 }
             }
         );
@@ -92,6 +140,6 @@ export abstract class MediaBlock extends Block {
     /**
      * On Screen Resize
      */
-    public abstract onScreenResize(event: JQueryEventObject): void;
+    public abstract onScreenResize(breakpoint: Breakpoint, event?: JQueryEventObject): void;
 }
 
