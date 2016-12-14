@@ -1,6 +1,6 @@
 {
-  "name": "lbc_builder2",
-  "version": "1.0.0",
+  "name": "lbc_builder",
+  "version": "2.0.0",
   "description": "Layout Block Component Builder",
   "main": "index.js",
   "scripts": {
